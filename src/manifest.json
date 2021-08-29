@@ -4,10 +4,13 @@
   "description": "A chrome extension to free up system resources used by active tabs",
   "version": "0.2.0",
   "permissions": [
+    "activeTab",
     "tabs",
     "storage",
     "contextMenus",
-    "alarms"
+    "alarms",
+    "http://*/",
+    "https://*/"
   ],
   "background": {
     "scripts": ["js/db.js", "js/storage.js", "js/tabStates.js", "js/eventPage.js"],

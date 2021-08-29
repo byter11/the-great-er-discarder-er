@@ -293,13 +293,20 @@ function resetTabTimer(tab) {
 }
 
 function discardTab(tab) {
-
-  chrome.tabs.discard(tab.id, function (discardedTab) {
-
-    if (chrome.runtime.lastError) {
-      console.log(chrome.runtime.lastError.message);
-    }
-  });
+  chrome.tabs.executeScript(
+    tab.id,
+    {
+      code: 'document.title = "💤" + document.title'
+    },
+    function(_) {
+      chrome.tabs.discard(tab.id, function (discardedTab) {
+    
+        if (chrome.runtime.lastError) {
+          console.log(chrome.runtime.lastError.message);
+        }
+      });
+    }  
+  );
 }
 
 function whitelistHighlightedTab() {

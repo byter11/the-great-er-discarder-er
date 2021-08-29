@@ -3,6 +3,7 @@
 /node_modules
 /build/crx/*.crx
 /build/zip/*.zip
+/build/*
 .idea/*
 /src/*.sublime-workspace
 /src/*.sublime-project
